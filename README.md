@@ -1,4 +1,4 @@
-# A collectionof useful scripts
+# A collection of useful scripts
 
 ## Bash
 
