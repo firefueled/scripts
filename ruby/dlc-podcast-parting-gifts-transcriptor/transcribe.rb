@@ -13,7 +13,11 @@ def download_episode url
   File.new(file_name)
 end
 
-def cut_section
+def cut_section file
+  name_split = File.basename(file).split('.')
+  new_filename = name_split[0] + '-partinggifts' + File.extname(file)
+
+  `ffmpeg -sseof -10:00 -i #{file.path} -codec copy #{new_filename}`
 end
 
 def transcribe_section
