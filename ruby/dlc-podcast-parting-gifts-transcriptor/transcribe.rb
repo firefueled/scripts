@@ -28,11 +28,15 @@ def transcribe_section file
   text_file_name = File.basename(file) << '.txt'
   api_key = SECRETS['watson_api_key']
 
-  `curl -X POST -u "apikey:#{api_key}" --header "Content-Type: audio/mp3" --data-binary @#{file.path} "#{ENDPOINT}" -o #{text_file_name}`
+  `curl -X POST -u "apikey:#{api_key}" --data-binary @#{file.path} "#{ENDPOINT}" -o #{text_file_name}`
 end
 
-def extract_text
+def extract_text transcription_file
+  result = JSON.parse(File.read(transcription))
 
+  paragraphs = result['results'].map do |res|
+    res['alternatives'][0]['transcript']
+  end
 end
 
 def differentiate_guests

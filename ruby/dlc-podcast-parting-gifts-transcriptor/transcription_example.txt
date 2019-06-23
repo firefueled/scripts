@@ -1,0 +1,194 @@
+                                       {
+   "results": [
+      {
+         "alternatives": [
+            {
+               "confidence": 0.85,
+               "transcript": "Erin moralis reward you have something to help people get through their week "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.88,
+               "transcript": "yeah my my favorite singer in the whole world is this French Dutch Israeli singer songwriter named Karen Anne and she just released her eighth studio album it's %HESITATION in French for the first time in like five or seven years %HESITATION I discover her when I was starting abroad in like two thousand in France and I have been obsessed with her ever since and I've only seen her like a dozen times I just got this year live at city winery here in New York City and she played with a string quartet and it was just like a magical night of sitting there drinking wine and listening to like the most beautiful music you've ever heard so I would highly recommend her new album is called blurred and her name is Karen and K. E. R. E. N. A. and and yeah K. E. R. E. N. yeah very cool I just clicked on this I can't wait to listen to it %HESITATION very very cool "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.69,
+               "transcript": "yeah I like like this is the heartbreaking and gorgeous just look beautiful stuff yeah it's called "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.8,
+               "transcript": "%HESITATION awesome Karen in Christian you have a a parting gift for the folks "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.81,
+               "transcript": "I do and it's it's sticks with the theme you and are fortunate enough recently to go see the midnight live I before last the night before last when a recording this and %HESITATION had some you know "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.89,
+               "transcript": "treatment there which is thank you to them in the mid night everyone it was incredible it was incredible they have a new single out called America online that came out earlier this month the beginning of this month that I think is phenomenal and having seen them being fortunate to see them live a couple of times now this is going to sound like I'm exaggerating but I really mean it I think seeing the midnight play live with the group of friends is what life is all about like I try as it's it's an incredible experience there so amazing live yeah and I love them message in the feeling behind their music and seeing that in a room of "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.88,
+               "transcript": "Paul arm it's it's beautiful I think going to concerts in general it is amazing because of that connection in the room but having seen the midnight now couple times life it's it's it's truly incredible and they put on a great show so if you can find them another kind of wrapping up their U. S. tour if not already wrapped sorry sorry it's his late but go see them go see them live there absolutely phenomenal yeah we talked about the night a bunch times on the show %HESITATION but if you haven't yet just checked out their music my goodness what you waiting for %HESITATION their latest album kids is "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.97,
+               "transcript": "not only "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.85,
+               "transcript": "one of my favorite albums ever %HESITATION it's my son's favorite album he's two and a half and his favorite song is lost boy and he always requested in the cart that lost weight that he lost boy and %HESITATION so you know it has a two year olds still approval %HESITATION but also "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.89,
+               "transcript": "that all of their music is incredible and yes it was what an experiencing them live my goodness "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.76,
+               "transcript": "so fun so fun "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.8,
+               "transcript": "so a second all that %HESITATION we also have a listener suggested parting gift this isn't a DLC feedback at G. mail dot com this comes from Matthew McFerrin Matthew says "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.93,
+               "transcript": "I've dropped a small donation to your Saint Jude's appeal I hope you get above and beyond the six thousand dollar target I've been in touch previously but want to read it reiterate that our daughter actually had treatment from one of St Jude's leukemia protocols and the fact that they send their research far and wide for all the use is amazing in today's age of get what you can and screw the other guys we're in the UK and to know that the best and most current research is being sent to where it is needed most is so very encouraging and helps give hope where there is so little I can't recommend your fundraising enough and would urge everyone to donate if not your campaign into something or anything at all related to childhood cancer cancer is something that deserves no place in our lives let alone and that of a child anything to help combat this is surely worth a dollar at the very least "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.91,
+               "transcript": "apps as a parting gift you could ask your listeners followers etcetera to maybe skip that morning coffee shop visit and pay pal that charity they hope they never have to depend on "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.65,
+               "transcript": "well that's powerful "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.85,
+               "transcript": "thanks to both your pursuits and to help people through their day fundraising or podcasting every little bit helps thank you Matthew of powerful and I think you Christian for you know making this a part of our message on the show I really appreciated on it bears repeating here in the parting gifts "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.82,
+               "transcript": "hi my parting gift is a new show on Netflix that I am %HESITATION enjoying my wife and I watched the first two episodes last night brand new show string Christina Applegate of all people call dead to me "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.9,
+               "transcript": "interesting show really really interesting it's kind of an hour long drama in the style of you know the breaking bad's of the world but it's a half hour "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.86,
+               "transcript": "really some you see very often is that tone that style but half hour episodes usually if it's a half hour especially in this modern age it is a comedy this is not a company this is a a drama with really kind of creepy undertones very good very good performance is really interesting it's about a woman who's dealing with the death of her husband in a car accident and meets this mysterious stranger at a support group and then things get weirder from there %HESITATION I'm taking it I recommend it's called dead to me it's on Netflix "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.83,
+               "transcript": "all right that's gonna do it for this episode of D. L. C. thanks again to %HESITATION moralis incursions by server hanging out with me thanks to all the folks in our chat room for hanging out with all of us live as it happens we appreciate you "
+            }
+         ],
+         "final": true
+      },
+      {
+         "alternatives": [
+            {
+               "confidence": 0.88,
+               "transcript": "to our musical contributors Patrick L. Sean Madigan and zero star for making those numbers and thank you to each of you who download the show on this and we appreciate you we're grateful I will be back next week until then think about what you put out into the world make it a better place "
+            }
+         ],
+         "final": true
+      }
+   ],
+   "result_index": 0
+}
