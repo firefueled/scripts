@@ -11,10 +11,10 @@ def download_episode url
   @current_file_name = File.basename(uri.path)
 
   # delete any file first to make sure we get the proper name
-  `rm #{@current_file_name}`
+  `rm -f #{@current_file_name}`
 
   # download the thing
-  `wget #{url}`
+  `wget -q #{url}`
 
   File.new(@current_file_name)
 end
@@ -22,7 +22,7 @@ end
 def cut_section file
   @current_file_name.insert(-5, '-partinggifts')
 
-  `ffmpeg -sseof -10:00 -i #{file.path} -codec copy -y #{@current_file_name}`
+  `ffmpeg -loglevel quiet -sseof -10:00 -i #{file.path} -codec copy -y #{@current_file_name}`
   File.new(@current_file_name)
 end
 
@@ -30,7 +30,7 @@ def transcribe_section file
   text_file_name = File.basename(file) << '.txt'
   api_key = SECRETS['watson_api_key']
 
-  `curl -X POST -u "apikey:#{api_key}" --data-binary @#{file.path} "#{ENDPOINT}" -o #{text_file_name}`
+  `curl -X POST -s -u "apikey:#{api_key}" --data-binary @#{file.path} "#{ENDPOINT}" -o #{text_file_name}`
   File.new(text_file_name)
 end
 
