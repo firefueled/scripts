@@ -1,4 +1,8 @@
 require 'json'
+require 'yaml'
+
+SECRETS = YAML.load(File.read('secrets.yml'))
+ENDPOINT = 'https://stream.watsonplatform.net/speech-to-text/api/v1/recognize'
 
 def download_episode url
   uri = URI(url)
@@ -14,14 +18,17 @@ def download_episode url
 end
 
 def cut_section file
-  name_split = File.basename(file).split('.')
-  new_filename = name_split[0] + '-partinggifts' + File.extname(file)
+  file_sufix = File.basename(file).split('.')[0]
+  new_filename = file_sufix << '-partinggifts' << File.extname(file)
 
   `ffmpeg -sseof -10:00 -i #{file.path} -codec copy #{new_filename}`
 end
 
-def transcribe_section
+def transcribe_section file
+  text_file_name = File.basename(file) << '.txt'
+  api_key = SECRETS['watson_api_key']
 
+  `curl -X POST -u "apikey:#{api_key}" --header "Content-Type: audio/mp3" --data-binary @#{file.path} "#{ENDPOINT}" -o #{text_file_name}`
 end
 
 def extract_text
