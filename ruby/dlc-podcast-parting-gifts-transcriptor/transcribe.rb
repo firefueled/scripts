@@ -3,23 +3,23 @@ require 'yaml'
 
 SECRETS = YAML.load(File.read('secrets.yml'))
 ENDPOINT = 'https://stream.watsonplatform.net/speech-to-text/api/v1/recognize'
+current_file_name = ''
 
 def download_episode url
   uri = URI(url)
-  file_name = File.basename(uri.path)
+  current_file_name = File.basename(uri.path)
 
   # delete any file first to make sure we get the proper name
-  `rm #{file_name}`
+  `rm #{current_file_name}`
 
   # download the thing
   `wget #{url}`
 
-  File.new(file_name)
+  File.new(current_file_name)
 end
 
 def cut_section file
-  file_sufix = File.basename(file).split('.')[0]
-  new_filename = file_sufix << '-partinggifts' << File.extname(file)
+  current_file_name.insert(-5, '-partinggifts')
 
   `ffmpeg -sseof -10:00 -i #{file.path} -codec copy #{new_filename}`
 end
@@ -43,8 +43,11 @@ def differentiate_guests
 
 end
 
-def output_text
+def output_text paragraphs
+  current_file_name.insert(-5, '-transcription')
+  current_file_name.sub('mp3', 'txt')
 
+  IO.write(current_file_name, paragraphs.join("\n"))
 end
 
 url = 'http://director.5by5.tv/d/dlc/cdn.5by5.tv/audio/broadcasts/dlc/2019/dlc-286.mp3'
@@ -52,4 +55,5 @@ url = 'http://director.5by5.tv/d/dlc/cdn.5by5.tv/audio/broadcasts/dlc/2019/dlc-2
 episode_file = download_episode url
 pg_section_file = cut_section episode_file
 transcription_result = transcribe_section pg_section_file
-raw_text = extract_text transcription_result
+paragraphs = extract_text transcription_result
+output_text paragraphs
