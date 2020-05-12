@@ -3,29 +3,33 @@ require 'json'
 require 'yaml'
 
 SECRETS = YAML.load(File.read('secrets.yml'))
-base_podcast_url = 'http://director.5by5.tv/d/dlc/cdn.5by5.tv/audio/broadcasts/dlc/2019/'
+base_podcast_url = 'https://director.5by5.tv/d/dlc/5by5.cachefly.net/audio/broadcasts/dlc/2020/'
 ENDPOINT = 'https://stream.watsonplatform.net/speech-to-text/api/v1/recognize'
 @current_file_name = ''
 
 def download_episode uri
+  puts 'downloading episode...'
+
   @current_file_name = File.basename(uri.path)
 
-  # # delete any file first to make sure we get the proper name
-  # `rm -f #{@current_file_name}`
+  # delete any file first to make sure we get the proper name
+  `rm -f #{@current_file_name}`
 
-  # # download the thing
-  # `wget -q #{uri.to_s}`
+  # download the thing
+  `wget -q #{uri.to_s}`
   File.new(@current_file_name)
 end
 
 def cut_section file
+  puts 'extracting parting gifts section...'
   @current_file_name.insert(-5, '-partinggifts')
 
-  # `ffmpeg -loglevel quiet -sseof -10:00 -i #{file.path} -codec copy -y #{@current_file_name}`
+  `ffmpeg -loglevel quiet -sseof -10:00 -i #{file.path} -codec copy -y #{@current_file_name}`
   File.new(@current_file_name)
 end
 
 def transcribe_section file
+  puts 'transcribing section...'
   text_file_name = File.basename(file) << '.txt'
   api_key = SECRETS['watson_api_key']
 
@@ -34,6 +38,7 @@ def transcribe_section file
 end
 
 def extract_text transcription_file
+  puts 'extracting text paragraphs...'
   result = JSON.parse(File.read(transcription_file))
 
   paragraphs = result['results'].map do |res|
@@ -50,6 +55,7 @@ def output_text paragraphs
   @current_file_name.sub!('mp3', 'txt')
 
   IO.write(@current_file_name, paragraphs.join("\n\n"))
+  puts 'done. created file ' << @current_file_name
 end
 
 ep_number = ARGV[0]
@@ -58,7 +64,9 @@ if ep_number.nil?
   exit
 end
 
-puts "Should episode #{ep_number} be transcribed? [yN]"
+puts "About to transcribe episode #{ep_number} parting gifts"
+puts 'Continue? [yN]'
+
 confirmation = STDIN.gets.chomp
 
 if confirmation != 'y' and confirmation != 'Y'
