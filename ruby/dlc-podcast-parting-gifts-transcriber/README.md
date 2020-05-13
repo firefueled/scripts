@@ -4,7 +4,7 @@
 
 This is built with Ruby so get that running before anything else.
 
-You need `wget`, `curl` and `ffmpeg` to be available as command line tools.
+You'll need `wget`, `curl` and `ffmpeg` to be available as command line tools.
 
 The transcription is done by the [Speech-to-text IBM Cloud service](https://cloud.ibm.com/catalog/services/speech-to-text).
 Create an  account and get an API key.
