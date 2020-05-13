@@ -17,6 +17,12 @@ def download_episode uri
 
   # download the thing
   `wget -q #{uri.to_s} -P #{OUTPUT_DIR}`
+
+  if not File.exists?(@current_file_name)
+    puts `Couldn't download file at address #{uri.to_s}`
+    exit 1
+  end
+
   File.new(@current_file_name)
 end
 
@@ -24,16 +30,18 @@ def cut_section file
   puts 'extracting parting gifts section...'
   @current_file_name.insert(-5, '-partinggifts')
 
+  # strip the last 10 minutes of the file and saves it separately
   `ffmpeg -loglevel quiet -sseof -10:00 -i #{file.path} -codec copy -y #{@current_file_name}`
   File.new(@current_file_name)
 end
 
 def transcribe_section file
   puts 'transcribing section...'
-  text_file_name = File.join(OUTPUT_DIR, File.basename(file) << '.txt')
+  text_file_name = @current_file_name.sub('.mp3', '.txt')
   api_key = SECRETS['watson_api_key']
 
-  `curl -X POST -s -u "apikey:#{api_key}" --header "Content-Type: audio/mp3" --data-binary @#{file.path} "#{WATSON_ENDPOINT}" -o #{text_file_name}`
+  # send the parting gifts section do the watson service and saves the result
+  `curl -X POST -s -u "apikey:#{api_key}" -H "Content-Type: audio/mp3" --data-binary @#{file.path} "#{WATSON_ENDPOINT}" -o #{text_file_name}`
   File.new(text_file_name)
 end
 
@@ -41,6 +49,7 @@ def extract_text transcription_file
   puts 'extracting text paragraphs...'
   result = JSON.parse(File.read(transcription_file))
 
+  # extract the text bits from the transcription object
   paragraphs = result['results'].map do |res|
     res['alternatives'][0]['transcript']
   end
@@ -72,6 +81,13 @@ if confirmation != 'y' and confirmation != 'Y'
   puts 'No confirmation. Exiting...'
   exit
 end
+
+if SECRETS.nil? or SECRETS == false or SECRETS['watson_api_key'].nil? or SECRETS['watson_api_key'].length == 0
+  puts 'No watson API key found. Check you secrets.yml file.'
+  exit 1
+end
+
+Dir.mkdir(OUTPUT_DIR) unless Dir.exists?(OUTPUT_DIR)
 
 episode_file = download_episode URI.join(PODCAST_ENDPOINT, 'dlc-' << ep_number << '.mp3')
 pg_section_file = cut_section episode_file
